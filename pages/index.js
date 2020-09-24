@@ -1,5 +1,4 @@
-import React from 'react';
-import { useColorMode, Heading, Text, Flex, Stack } from '@chakra-ui/core';
+import React, { useState } from 'react';
 
 import Timeline from '../components/Timeline';
 import Container from '../components/Container';
@@ -7,17 +6,32 @@ import BlogPost from '../components/BlogPost';
 import Subscribe from '../components/Subscribe';
 import ProjectCard from '../components/ProjectCard';
 
-import { frontMatter as styleGuides } from './blog/style-guides-component-libraries-design-systems.mdx';
-import { frontMatter as stripeDesign } from './blog/how-stripe-designs-beautiful-websites.mdx';
-import { frontMatter as monorepo } from './blog/monorepo-lerna-yarn-workspaces.mdx';
+import {
+  useColorMode,
+  Heading,
+  Text,
+  Flex,
+  Stack,
+  Input,
+  InputGroup,
+  InputRightElement,
+  Icon
+} from '@chakra-ui/core';
+
+import { frontMatter as blogPosts } from './blog/**/*.mdx';
 
 const Index = () => {
   const { colorMode } = useColorMode();
+  const [searchValue, setSearchValue] = useState('');
+
   const secondaryTextColor = {
     light: 'gray.700',
     dark: 'gray.400'
   };
 
+  const filteredBlogPosts = blogPosts.sort(
+    (a, b) => Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
+  );
   return (
     <Container>
       <Stack
@@ -41,6 +55,7 @@ const Index = () => {
             I’m a student, Jr. Frontend developer, and constant learner.
           </Text>
         </Flex>
+
         <Flex
           flexDirection="column"
           justifyContent="flex-start"
@@ -48,12 +63,20 @@ const Index = () => {
           maxWidth="700px"
           mt={8}
         >
-          <Heading letterSpacing="tight" mb={4} size="xl" fontWeight={700}>
-            Most Popular
+          <Heading
+            letterSpacing="tight"
+            mt={8}
+            mb={8}
+            as="h2"
+            size="xl"
+            fontWeight={500}
+          >
+            Blog Posts
           </Heading>
-          <BlogPost {...styleGuides} />
-          <BlogPost {...stripeDesign} />
-          <BlogPost {...monorepo} />
+          {!filteredBlogPosts.length && 'No posts found.'}
+          {filteredBlogPosts.map((frontMatter) => (
+            <BlogPost key={frontMatter.title} {...frontMatter} />
+          ))}
         </Flex>
         <Flex
           flexDirection="column"
@@ -61,7 +84,14 @@ const Index = () => {
           alignItems="flex-start"
           maxWidth="700px"
         >
-          <Heading letterSpacing="tight" mb={4} size="xl" fontWeight={700}>
+          <Heading
+            letterSpacing="tight"
+            mt={8}
+            mb={8}
+            as="h2"
+            size="xl"
+            fontWeight={500}
+          >
             Projects
           </Heading>
           <ProjectCard
@@ -84,7 +114,6 @@ const Index = () => {
           />
         </Flex>
         <Timeline />
-        <Subscribe />
       </Stack>
     </Container>
   );

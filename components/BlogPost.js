@@ -1,14 +1,19 @@
 import React from 'react';
 import NextLink from 'next/link';
+import BlogSeo from './BlogSeo';
 import useSWR from 'swr';
 import format from 'comma-number';
+import DateFormatter from './DateFormatter';
+
 import { useColorMode, Heading, Text, Flex, Box, Link } from '@chakra-ui/core';
 
 import fetcher from '../lib/fetcher';
 
 const BlogPost = (frontMatter) => {
-  const { title, summary } = frontMatter;
+  const { title, summary, publishedAt, readingTime } = frontMatter;
+
   const { colorMode } = useColorMode();
+
   const secondaryTextColor = {
     light: 'gray.700',
     dark: 'gray.400'
@@ -18,32 +23,35 @@ const BlogPost = (frontMatter) => {
     .replace('blog/', '')
     .replace('.mdx', '');
 
-  const { data } = useSWR(`/api/page-views?id=${slug}`, fetcher);
-  const views = data?.total;
-
   return (
-    <NextLink href={`blog/${slug}`} passHref>
+    <NextLink href={`${slug}`} passHref>
       <Link w="100%" _hover={{ textDecoration: 'none' }}>
         <Box mb={8} display="block" width="100%">
           <Flex
             width="100%"
             align="flex-start"
             justifyContent="space-between"
-            flexDirection={['column', 'row']}
+            flexDirection={'column'}
           >
-            <Heading size="md" as="h3" mb={2} fontWeight="medium">
+            <Heading size="md" as="h3" mb='0.15rem' fontWeight={500}>
               {title}
             </Heading>
-            <Text
-              color="gray.500"
-              minWidth="105px"
-              textAlign={['left', 'right']}
-              mb={[4, 0]}
-            >
-              {`${views ? format(views) : '–––'} views`}
-            </Text>
+            <Flex width="100%" align="flex-start" flexDirection={'row'}>
+              <Text
+                fontSize="md"
+                color="gray.500"
+                minWidth="105px"
+                textAlign={['left', 'right']}
+                mb={[4, 0]}
+              >
+                <DateFormatter dateString={publishedAt} />
+                {` • `}
+              </Text>
+              <Text fontSize="md" color="gray.500" minWidth="100px" ml={1}>
+                {frontMatter.readingTime.text}
+              </Text>
+            </Flex>
           </Flex>
-          <Text color={secondaryTextColor[colorMode]}>{summary}</Text>
         </Box>
       </Link>
     </NextLink>
