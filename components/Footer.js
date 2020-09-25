@@ -1,103 +1,69 @@
 import React from 'react';
 import NextLink from 'next/link';
-import { Flex, Link, IconButton } from '@chakra-ui/core';
+import { Flex, Link, IconButton, Text, useColorMode } from '@chakra-ui/core';
 
-import NowPlaying from './NowPlaying';
+const Footer = () => {
+  const { colorMode } = useColorMode();
 
-const Footer = () => (
-  <Flex align="center" mb={4} direction="column">
-    <NowPlaying />
-    <div>
-      <Link href="https://twitter.com/leeerob" title="Twitter" isExternal>
-        <IconButton
-          aria-label="Twitter"
-          icon="twitter"
-          size="lg"
-          color="gray.500"
-          variant="ghost"
-        />
-      </Link>
-      <Link href="https://github.com/leerob" title="GitHub" isExternal>
-        <IconButton
-          aria-label="GitHub"
-          icon="github"
-          size="lg"
-          color="gray.500"
-          variant="ghost"
-        />
-      </Link>
-      <Link
-        href="https://www.linkedin.com/in/leeerob"
-        title="LinkedIn"
-        isExternal
-      >
-        <IconButton
-          aria-label="LinkedIn"
-          icon="linkedin"
-          size="lg"
-          color="gray.500"
-          variant="ghost"
-        />
-      </Link>
-      <Link
-        href="https://www.youtube.com/channel/UCZMli3czZnd1uoc1ShTouQw"
-        title="YouTube"
-        isExternal
-      >
-        <IconButton
-          aria-label="YouTube"
-          icon="youtube"
-          size="lg"
-          color="gray.500"
-          variant="ghost"
-        />
-      </Link>
-      <Link href="mailto:me@leerob.io" title="Email" isExternal>
-        <IconButton
-          aria-label="Email"
-          icon="mail"
-          size="lg"
-          color="gray.500"
-          variant="ghost"
-        />
-      </Link>
-    </div>
-    <div>
-      <NextLink href="/uses" passHref>
-        <Link
-          fontSize="sm"
-          color="gray.500"
-          minWidth="100px"
-          mr={2}
-          title="Uses"
-        >
-          /uses
+  const iconColor = {
+    light: 'gray.700',
+    dark: 'gray.200'
+  };
+  return (
+    <Flex
+      align="center"
+      mb={4}
+      direction={['column', 'row']}
+      justify="space-around"
+    >
+      <div>
+        <Link href="https://github.com/alihan" title="GitHub" isExternal>
+          <IconButton
+            aria-label="GitHub"
+            icon="github"
+            fontSize="23px"
+            color={iconColor[colorMode]}
+            variant="ghost"
+          />
         </Link>
-      </NextLink>
-      <Link
-        fontSize="sm"
-        color="gray.500"
-        minWidth="100px"
-        mr={2}
-        href="https://photos.leerob.io/"
-        title="Photos"
-        isExternal
-      >
-        /photos
-      </Link>
-      <NextLink href="/newsletter" passHref>
         <Link
-          fontSize="sm"
-          color="gray.500"
-          minWidth="100px"
-          mr={2}
-          title="Newsletter"
+          href="https://www.linkedin.com/in/alihanyiilmaz"
+          title="LinkedIn"
+          isExternal
         >
-          /newsletter
+          <IconButton
+            aria-label="LinkedIn"
+            icon="linkedin"
+            fontSize="25px"
+            color={iconColor[colorMode]}
+            variant="ghost"
+          />
         </Link>
-      </NextLink>
-    </div>
-  </Flex>
-);
+        <Link href="mailto:alihanyiilmaz@gmail.com" title="Email" isExternal>
+          <IconButton
+            aria-label="Email"
+            icon="mail"
+            fontSize="25px"
+            color={iconColor[colorMode]}
+            variant="ghost"
+          />
+        </Link>
+      </div>
+      <div>
+        <Flex fontWeight={600}>
+          alihanyiilmaz
+          <Text mx={1} fontWeight={300}>
+            at
+          </Text>
+          gmail
+          <Text mx={1} fontWeight={300}>
+            dot
+          </Text>
+          com
+        </Flex>
+      </div>
+    </Flex>
+  );
+};
 
 export default Footer;
