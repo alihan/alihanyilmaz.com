@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import NextLink from 'next/link';
 
 import Timeline from '../components/Timeline';
 import Container from '../components/Container';
@@ -12,17 +13,24 @@ import {
   Text,
   Flex,
   Stack,
-  Input,
-  InputGroup,
-  InputRightElement,
-  Icon
+  Icon,
+  Button,
+  Link
 } from '@chakra-ui/core';
 
 import { frontMatter as blogPosts } from './blog/**/*.mdx';
 
 const Index = () => {
   const { colorMode } = useColorMode();
-  const [searchValue, setSearchValue] = useState('');
+
+  const borderColor = {
+    light: 'gray.700',
+    dark: 'gray.200'
+  };
+  const iconColor = {
+    light: 'gray.1000',
+    dark: 'white'
+  };
 
   const secondaryTextColor = {
     light: 'gray.700',
@@ -32,6 +40,7 @@ const Index = () => {
   const filteredBlogPosts = blogPosts.sort(
     (a, b) => Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
   );
+
   return (
     <Container>
       <Stack
@@ -55,7 +64,6 @@ const Index = () => {
             I’m a student, Jr. Frontend developer, and constant learner.
           </Text>
         </Flex>
-
         <Flex
           flexDirection="column"
           justifyContent="flex-start"
@@ -63,16 +71,18 @@ const Index = () => {
           maxWidth="700px"
           mt={8}
         >
-          <Heading
-            letterSpacing="tight"
-            mt={8}
-            mb={8}
-            as="h2"
-            size="xl"
-            fontWeight={500}
-          >
-            Blog Posts
-          </Heading>
+          {filteredBlogPosts && (
+            <Heading
+              letterSpacing="tight"
+              mt={8}
+              mb={8}
+              as="h2"
+              size="xl"
+              fontWeight={500}
+            >
+              Blog Posts
+            </Heading>
+          )}
           {!filteredBlogPosts.length && 'No posts found.'}
           {filteredBlogPosts.map((frontMatter) => (
             <BlogPost key={frontMatter.title} {...frontMatter} />
@@ -84,36 +94,70 @@ const Index = () => {
           alignItems="flex-start"
           maxWidth="700px"
         >
-          <Heading
-            letterSpacing="tight"
-            mt={8}
-            mb={8}
-            as="h2"
-            size="xl"
-            fontWeight={500}
+          <Flex
+            alignItems="center"
+            width="100%"
+            justifyContent="space-between "
           >
-            Projects
-          </Heading>
+            <Heading
+              letterSpacing="tight"
+              mt={8}
+              mb={8}
+              as="h2"
+              size="xl"
+              fontWeight={500}
+            >
+              Projects
+            </Heading>
+            <Link
+              href="https://github.com/alihan"
+              passHref
+              isExternal
+              ml={8}
+              _hover={{
+                transform: 'scale(1.02)',
+                boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.1)',
+                textDecoration: 'none'
+              }}
+            >
+              <Flex
+                alignItems="center"
+                border="1px solid"
+                borderColor={borderColor[colorMode]}
+                borderRadius={4}
+                p={3}
+              >
+                <Text fontWeight={500}>See More</Text>
+                <Icon
+                  aria-label="LinkedIn"
+                  name="github"
+                  color={iconColor[colorMode]}
+                  size="20px"
+                  ml={4}
+                  mr={2}
+                />
+              </Flex>
+            </Link>
+          </Flex>
           <ProjectCard
-            title="React 2025"
-            description="Build and deploy a modern Jamstack application using the most popular open-source software."
-            href="https://react2025.com/"
-            icon="react2025"
+            title="Twitter React Clone"
+            description="Build Twitter UI using ReactJS, Storybook, and NextJS. Following through Adem Ilter's course."
+            href="https://twitter-react-ez5wita3g.vercel.app/"
+            icon="twitter"
           />
           <ProjectCard
-            title="Mastering Next.js"
-            description="A free video course for building static and server-side rendered applications with Next.js and React."
-            href="https://masteringnextjs.com/"
-            icon="nextjs"
+            title="Quiz App"
+            description="Build Quiz Application with Vanilla JS. Used Fetch API to get questions, and Web Storage API to store high scores."
+            href="https://quiz-app-mu.vercel.app/"
+            icon="check"
           />
           <ProjectCard
-            title="jamstackfns"
-            description="The best serverless functions for JAMstack applications. Deploy to Vercel or Netlify for your static site."
-            href="https://jamstackfns.com/"
-            icon="jamstackfns"
+            title="JS 30"
+            description="Build 30 different things with Vanilla JS. Following through Wes Bos' course, applied own solutions."
+            href="https://alihan.github.io/JS30/"
+            icon="js"
           />
         </Flex>
-        <Timeline />
       </Stack>
     </Container>
   );

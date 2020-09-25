@@ -23,8 +23,8 @@ const trackGoal = (title) => {
 const ProjectCard = ({ title, description, href, icon }) => {
   const { colorMode } = useColorMode();
   const borderColor = {
-    light: 'gray.200',
-    dark: 'gray.600'
+    light: 'gray.300',
+    dark: 'gray.500'
   };
   const iconColor = {
     light: 'gray.1000',
@@ -40,7 +40,8 @@ const ProjectCard = ({ title, description, href, icon }) => {
       isExternal
       _hover={{
         boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.05)',
-        textDecoration: 'none'
+        textDecoration: 'none',
+        transform: 'perspective(100px) rotateX(2deg) translateY(1px) scale(1.001)'
       }}
     >
       <Flex
@@ -68,7 +69,7 @@ const ProjectCard = ({ title, description, href, icon }) => {
           >
             {title}
           </Heading>
-          <Text lineHeight="1.3">{description}</Text>
+          <Text lineHeight="1.4">{description}</Text>
         </Stack>
       </Flex>
     </Link>

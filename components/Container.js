@@ -57,7 +57,7 @@ const Container = ({ children }) => {
               rounded="full"
               size="60px"
               src="/static/images/profile.jpg"
-              alt="Segun Adebayo"
+              alt="Alihan Yılmaz"
             />
           </Button>
         </NextLink>
