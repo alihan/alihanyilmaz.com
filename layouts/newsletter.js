@@ -10,7 +10,6 @@ import {
 } from '@chakra-ui/core';
 
 import Container from '../components/Container';
-import Subscribe from '../components/Subscribe';
 import BlogSeo from '../components/BlogSeo';
 
 export default function NewsletterLayout({ children, frontMatter }) {
@@ -73,7 +72,6 @@ export default function NewsletterLayout({ children, frontMatter }) {
           </Flex>
         </Flex>
         {children}
-        <Subscribe />
       </Stack>
     </Container>
   );

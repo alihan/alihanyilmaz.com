@@ -13,8 +13,6 @@ import {
 } from '@chakra-ui/core';
 
 import Container from '../components/Container';
-import Subscribe from '../components/Subscribe';
-import ViewCounter from '../components/ViewCounter';
 import BlogSeo from '../components/BlogSeo';
 
 const editUrl = (slug) =>
