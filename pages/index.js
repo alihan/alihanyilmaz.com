@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import NextLink from 'next/link';
 
-import Timeline from '../components/Timeline';
 import Container from '../components/Container';
 import BlogPost from '../components/BlogPost';
-import Subscribe from '../components/Subscribe';
 import ProjectCard from '../components/ProjectCard';
 
 import {
@@ -14,7 +12,6 @@ import {
   Flex,
   Stack,
   Icon,
-  Button,
   Link
 } from '@chakra-ui/core';
 

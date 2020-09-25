@@ -20,11 +20,11 @@ const BlogPost = (frontMatter) => {
   };
 
   const slug = frontMatter.__resourcePath
-    .replace('blog/', '')
+    .replace('/', '')
     .replace('.mdx', '');
 
   return (
-    <NextLink href={`${slug}`} passHref>
+    <NextLink href={`/${slug}`} passHref>
       <Link w="100%" _hover={{ textDecoration: 'none' }}>
         <Box mb={8} display="block" width="100%">
           <Flex
@@ -33,7 +33,7 @@ const BlogPost = (frontMatter) => {
             justifyContent="space-between"
             flexDirection={'column'}
           >
-            <Heading size="md" as="h3" mb='0.15rem' fontWeight={500}>
+            <Heading size="md" as="h3" mb="0.15rem" fontWeight={500}>
               {title}
             </Heading>
             <Flex width="100%" align="flex-start" flexDirection={'row'}>

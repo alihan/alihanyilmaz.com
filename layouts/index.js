@@ -36,7 +36,7 @@ export default function BlogLayout({ children, frontMatter }) {
 
   return (
     <Container>
-      <BlogSeo url={`https://leerob.io/blog/${slug}`} {...frontMatter} />
+      <BlogSeo url={`https://leerob.io/${slug}`} {...frontMatter} />
       <Stack
         as="article"
         spacing={8}

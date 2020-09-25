@@ -26,9 +26,15 @@ const ProjectCard = ({ title, description, href, icon }) => {
     light: 'gray.300',
     dark: 'gray.500'
   };
+
   const iconColor = {
     light: 'gray.1000',
     dark: 'white'
+  };
+  
+  const boxShadow = {
+    light: '0px 4px 20px rgba(0, 0, 0, 0.05)',
+    dark: '0px 4px 20px rgba(255, 255, 255, 0.05)'
   };
 
   return (
@@ -39,7 +45,7 @@ const ProjectCard = ({ title, description, href, icon }) => {
       title={title}
       isExternal
       _hover={{
-        boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.05)',
+        boxShadow: `${boxShadow[colorMode]}`,
         textDecoration: 'none',
         transform: 'perspective(100px) rotateX(2deg) translateY(1px) scale(1.001)'
       }}
