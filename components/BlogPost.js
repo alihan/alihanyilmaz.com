@@ -1,23 +1,12 @@
 import React from 'react';
 import NextLink from 'next/link';
-import BlogSeo from './BlogSeo';
-import useSWR from 'swr';
-import format from 'comma-number';
+
 import DateFormatter from './DateFormatter';
 
-import { useColorMode, Heading, Text, Flex, Box, Link } from '@chakra-ui/core';
-
-import fetcher from '../lib/fetcher';
+import { Heading, Text, Flex, Box, Link } from '@chakra-ui/core';
 
 const BlogPost = (frontMatter) => {
   const { title, publishedAt } = frontMatter;
-
-  const { colorMode } = useColorMode();
-
-  const secondaryTextColor = {
-    light: 'gray.700',
-    dark: 'gray.400'
-  };
 
   const slug = frontMatter.__resourcePath
     .replace('blog', '')
