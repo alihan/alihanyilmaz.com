@@ -9,12 +9,11 @@ const BlogPost = (frontMatter) => {
   const { title, publishedAt } = frontMatter;
 
   const slug = frontMatter.__resourcePath
-    .replace('blog', '')
+    .replace('blog/', '')
     .replace('.mdx', '');
-  console.log(slug);
 
   return (
-    <NextLink href={`${slug}`} passHref>
+    <NextLink href={`/${slug}`} passHref>
       <Link w="100%" _hover={{ textDecoration: 'none' }}>
         <Box mb={8} display="block" width="100%">
           <Flex

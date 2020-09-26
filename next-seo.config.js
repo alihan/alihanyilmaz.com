@@ -1,30 +1,24 @@
-const title = 'Lee Robinson – Developer, writer, creator.';
+const title = 'Alihan Yılmaz';
 const description =
-  'Front-end developer, JavaScript enthusiast, and course creator.';
+  'Student, Front-end developer, JavaScript enthusiast.';
 
 const SEO = {
   title,
   description,
-  canonical: 'https://leerob.io',
+  canonical: 'https://alihan.io',
   openGraph: {
     type: 'website',
     locale: 'en_IE',
-    url: 'https://leerob.io',
+    url: 'https://alihan.io',
     title,
     description,
     images: [
       {
-        url: 'https://leerob.io/static/images/og.jpg',
         alt: title,
         width: 1280,
         height: 720
       }
     ]
-  },
-  twitter: {
-    handle: '@leeerob',
-    site: '@leeerob',
-    cardType: 'summary_large_image'
   }
 };
 

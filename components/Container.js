@@ -92,7 +92,7 @@ const Container = ({ children }) => {
         color={primarytextColor[colorMode]}
         px={8}
       >
-        {children}
+          {children}
         <Footer />
       </Flex>
     </>

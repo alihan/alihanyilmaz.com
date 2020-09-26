@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import NextLink from 'next/link';
 
 import Container from '../components/Container';
 import BlogPost from '../components/BlogPost';
@@ -58,7 +57,7 @@ const Index = () => {
             Hi, I’m Alihan Yılmaz
           </Heading>
           <Text color={secondaryTextColor[colorMode]}>
-            {`I’m a student, Jr. Frontend developer, and constant learner.
+            {`I’m a student, Jr. Front-end developer, and constant learner.
                 I've been writing online since 2014, mostly about web development and tech careers.
                 In total, I've written ${blogPosts.length} articles on this site.
                 Use the search below to filter by title.`}

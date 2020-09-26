@@ -134,7 +134,6 @@ const theme = {
         </g>
       )
     },
-
     js: {
       path: (
         <path

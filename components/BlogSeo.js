@@ -11,7 +11,7 @@ const BlogSeo = ({ title, summary, publishedAt, url, image }) => {
   return (
     <>
       <NextSeo
-        title={`${title} – Lee Robinson`}
+        title={`${title} – Alihan Yılmaz`}
         description={summary}
         canonical={url}
         openGraph={{

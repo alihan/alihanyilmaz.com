@@ -9,7 +9,7 @@ import {
   Stack,
   Avatar,
   Link,
-  Box
+  Box,
 } from '@chakra-ui/core';
 
 import Container from '../components/Container';
@@ -65,17 +65,18 @@ export default function BlogLayout({ children, frontMatter }) {
             <Flex align="center">
               <Avatar
                 size="xs"
-                name="Lee Robinson"
-                src="https://bit.ly/33vEjhB"
+                name="Alihan Yılmaz"
+                src="/static/images/profile.jpg"
                 mr={2}
               />
               <Text fontSize="sm" color={textColor[colorMode]}>
                 {frontMatter.by}
-                {'Lee Robinson / '}
+                {'Alihan Yılmaz / '}
                 {format(parseISO(frontMatter.publishedAt), 'MMMM dd, yyyy')}
               </Text>
             </Flex>
             <Text fontSize="sm" color="gray.500" minWidth="100px" mt={[2, 0]}>
+              {` • `}
               {frontMatter.readingTime.text}
               {` • `}
             </Text>
@@ -86,20 +87,7 @@ export default function BlogLayout({ children, frontMatter }) {
           <Link href={discussUrl(slug)} isExternal>
             {'Discuss on Twitter'}
           </Link>
-          {` • `}
-          <Link href={editUrl(slug)} isExternal>
-            {'Edit on GitHub'}
-          </Link>
         </Box>
-        <IframeResizer
-          checkOrigin={false}
-          title="Comments"
-          src={`https://fastfeedback.io/embed/BLspD6y8Bfn73LLm7nvW/${slug}?theme=${colorMode}`}
-          style={{
-            width: '1px',
-            minWidth: '100%'
-          }}
-        />
       </Stack>
     </Container>
   );
