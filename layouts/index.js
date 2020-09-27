@@ -1,5 +1,4 @@
 import React from 'react';
-import IframeResizer from 'iframe-resizer-react';
 import { parseISO, format } from 'date-fns';
 import {
   useColorMode,
