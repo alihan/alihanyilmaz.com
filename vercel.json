@@ -4,8 +4,8 @@
   "trailingSlash": false,
   "redirects": [
     {
-      "source": "/LeeRobinson.pdf",
-      "destination": "/robinson-resume-2019.pdf"
+      "source": "/resume",
+      "destination": "/index.pdf"
     },
     {
       "source": "/projects",

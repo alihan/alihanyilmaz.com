@@ -29,7 +29,7 @@ const description =
 const Blog = () => {
   const [searchValue, setSearchValue] = useState('');
   const { colorMode } = useColorMode();
-  
+
   const secondaryTextColor = {
     light: 'gray.700',
     dark: 'gray.400'
@@ -75,37 +75,11 @@ const Blog = () => {
               Blog
             </Heading>
             <Text color={secondaryTextColor[colorMode]}>
-              {`I've been writing online since 2014, mostly about web development and tech careers.
-                In total, I've written ${blogPosts.length} articles on this site.
-                Use the search below to filter by title.`}
+              {`I have been writing what I have learned about mostly software development.
+                In total, I've written ${blogPosts.length} blog posts on this site.
+                `}
             </Text>
-            <InputGroup my={4} mr={4} w="100%">
-              <Input
-                aria-label="Search articles"
-                onChange={(e) => setSearchValue(e.target.value)}
-                placeholder="Search articles"
-              />
-              <InputRightElement>
-                <Icon name="search" color="gray.300" />
-              </InputRightElement>
-            </InputGroup>
           </Flex>
-          {!searchValue && (
-            <Flex
-              flexDirection="column"
-              justifyContent="flex-start"
-              alignItems="flex-start"
-              maxWidth="700px"
-              mt={8}
-            >
-              <Heading letterSpacing="tight" mb={4} size="xl" fontWeight={700}>
-                Most Popular
-              </Heading>
-              <BlogPost {...styleGuides} />
-              <BlogPost {...stripeDesign} />
-              <BlogPost {...monorepo} />
-            </Flex>
-          )}
           <Flex
             flexDirection="column"
             justifyContent="flex-start"
@@ -113,7 +87,7 @@ const Blog = () => {
             maxWidth="700px"
             mt={8}
           >
-            <Heading letterSpacing="tight" mb={4} size="xl" fontWeight={700}>
+            <Heading letterSpacing="tight" mb={4} size="xl" fontWeight={500}>
               All Posts
             </Heading>
             {!filteredBlogPosts.length && 'No posts found.'}

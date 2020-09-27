@@ -56,11 +56,12 @@ const Index = () => {
           <Heading letterSpacing="tight" mb={2} as="h1" size="2xl">
             Hi, I’m Alihan Yılmaz
           </Heading>
-          <Text color={secondaryTextColor[colorMode]}>
-            {`I’m a student, Jr. Front-end developer, and constant learner.
-                I've been writing online since 2014, mostly about web development and tech careers.
-                In total, I've written ${blogPosts.length} articles on this site.
-                Use the search below to filter by title.`}
+          <Text color={secondaryTextColor[colorMode]} mb={4}>
+            I’m a student, Jr. Front-end developer, and constant learner.
+          </Text>
+          <Text color={secondaryTextColor[colorMode]} >
+            I grew up in Izmir and went to school at Ankara,
+            still studying for a degree in Computer Engineering. I've been learning Frontend development since 2019. Currently, I'm learning ReactJS.
           </Text>
         </Flex>
         <Flex
@@ -73,7 +74,7 @@ const Index = () => {
           {filteredBlogPosts && (
             <Heading
               letterSpacing="tight"
-              mt={8}
+              mt={4}
               mb={8}
               as="h2"
               size="xl"
@@ -100,7 +101,7 @@ const Index = () => {
           >
             <Heading
               letterSpacing="tight"
-              mt={8}
+              mt={4}
               mb={8}
               as="h2"
               size="xl"

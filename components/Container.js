@@ -72,14 +72,9 @@ const Container = ({ children }) => {
               Blog
             </Button>
           </NextLink>
-          <NextLink href="/about" passHref>
+          <NextLink href="/resume" passHref>
             <Button as="a" variant="ghost" p={[1, 4]}>
-              About
-            </Button>
-          </NextLink>
-          <NextLink href="/" passHref>
-            <Button as="a" variant="ghost" p={[1, 4]}>
-              Home
+              Resume
             </Button>
           </NextLink>
         </Box>
@@ -92,7 +87,7 @@ const Container = ({ children }) => {
         color={primarytextColor[colorMode]}
         px={8}
       >
-          {children}
+        {children}
         <Footer />
       </Flex>
     </>
