@@ -66,6 +66,7 @@ const Container = ({ children }) => {
             aria-label="Toggle dark mode"
             icon={colorMode === 'dark' ? 'sun' : 'moon'}
             onClick={toggleColorMode}
+            variant="solid"
           />
           <NextLink href="/blog" passHref>
             <Button as="a" variant="ghost" p={[1, 4]}>

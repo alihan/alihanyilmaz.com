@@ -13,8 +13,8 @@ const BlogPost = (frontMatter) => {
     .replace('.mdx', '');
 
   return (
-    <NextLink href={`/${slug}`} passHref>
-      <Link w="100%" _hover={{ textDecoration: 'none' }}>
+    <NextLink href={`blog/${slug}`} passHref>
+      <Link w="100%" _hover={{ textDecoration: 'none' }} _focus={{boxShadow: 'none'}}>
         <Box mb={8} display="block" width="100%">
           <Flex
             width="100%"
