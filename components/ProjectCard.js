@@ -31,10 +31,10 @@ const ProjectCard = ({ title, description, href, icon }) => {
     light: 'gray.1000',
     dark: 'white'
   };
-  
+
   const boxShadow = {
     light: '0px 4px 20px rgba(0, 0, 0, 0.05)',
-    dark: '0px 4px 20px rgba(255, 255, 255, 0.05)'
+    dark: '0px 4px 20px rgba(255, 255, 255, 0.15)'
   };
 
   return (
@@ -46,8 +46,7 @@ const ProjectCard = ({ title, description, href, icon }) => {
       isExternal
       _hover={{
         boxShadow: `${boxShadow[colorMode]}`,
-        textDecoration: 'none',
-        transform: 'perspective(100px) rotateX(2deg) translateY(1px) scale(1.001)'
+        textDecoration: 'none'
       }}
     >
       <Flex

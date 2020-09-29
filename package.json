@@ -33,6 +33,7 @@
     "date-fns": "^2.16.1",
     "emotion-theming": "10.0.27",
     "fathom-client": "3.0.0",
+    "framer-motion": "^2.7.6",
     "googleapis": "48.0.0",
     "iframe-resizer-react": "^1.0.4",
     "mdx-prism": "0.3.1",

@@ -34,14 +34,11 @@ const Error = () => {
           alignItems="flex-start"
           maxWidth="700px"
         >
-          <Heading letterSpacing="tight" mb={2} as="h1" size="2xl">
-            451 – Unavailable For Legal Reasons
+          <Heading letterSpacing="tight" mb={2} as="h1" fontSize="3rem">
+            404 – This page could not be found.
           </Heading>
           <Text color={secondaryTextColor[colorMode]} my={4}>
-            Why show a generic 404 when I can make it sound mysterious? It seems
-            you've found something that used to exist, or you spelled something
-            wrong. I'm guessing you spelled something wrong. Can you double
-            check that URL?
+            This page does not exist. Probably, you spelled something wrong.
           </Text>
           <NextLink href="/" passHref>
             <Button

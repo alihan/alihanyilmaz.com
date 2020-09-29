@@ -16,6 +16,7 @@ import theme from '../styles/theme';
 import { prismLightTheme, prismDarkTheme } from '../styles/prism';
 import MDXComponents from '../components/MDXComponents';
 import SEO from '../next-seo.config';
+import { motion } from 'framer-motion';
 
 const GlobalStyle = ({ children }) => {
   const { colorMode } = useColorMode();
@@ -87,7 +88,21 @@ const App = ({ Component, pageProps }) => {
               />
             </Head>
             <DefaultSeo {...SEO} />
-            <Component {...pageProps} />
+            <motion.div
+              key={Router.route}
+              initial="pageInitial"
+              animate="pageAnimate"
+              variants={{
+                pageInitial: {
+                  opacity: 0
+                },
+                pageAnimate: {
+                  opacity: 1
+                }
+              }}
+            >
+              <Component {...pageProps} />
+            </motion.div>
           </GlobalStyle>
         </ColorModeProvider>
       </MDXProvider>

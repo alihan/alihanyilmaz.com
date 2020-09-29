@@ -59,9 +59,10 @@ const Index = () => {
           <Text color={secondaryTextColor[colorMode]} mb={4}>
             I’m a student, Jr. Front-end developer, and constant learner.
           </Text>
-          <Text color={secondaryTextColor[colorMode]} >
-            I grew up in Izmir and went to school at Ankara,
-            still studying for a degree in Computer Engineering. I've been learning Frontend development since 2019. Currently, I'm learning ReactJS.
+          <Text color={secondaryTextColor[colorMode]}>
+            I grew up in Izmir and went to school at Ankara, still studying for
+            a degree in Computer Engineering. I've been learning Frontend
+            development since 2019. Currently, I'm learning ReactJS.
           </Text>
         </Flex>
         <Flex
@@ -146,10 +147,10 @@ const Index = () => {
             icon="twitter"
           />
           <ProjectCard
-            title="Quiz App"
-            description="Build Quiz Application with Vanilla JS. Used Fetch API to get questions, and Web Storage API to store high scores."
-            href="https://quiz-app-mu.vercel.app/"
-            icon="check"
+            title="Frontend Mentor Challenges"
+            description="Build different components and layout pages with HTML5, CSS3, VanillaJS. Most of them are mobile-first."
+            href="https://frontendmentor-challenges-xi.vercel.app/"
+            icon="web"
           />
           <ProjectCard
             title="JS 30"

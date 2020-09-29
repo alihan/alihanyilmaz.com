@@ -159,9 +159,24 @@ const theme = {
           <path d="M15 9l-6 6M9 9l6 6" />
         </g>
       )
+    },
+    web: {
+      path: (
+        <g
+          fill="currentColor"
+          stroke="none"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M26 23l3 3 10-10-10-10-3 3 7 7z" />
+          <path d="M14 9l-3-3-10 10 10 10 3-3-7-7z" />
+          <path d="M21.916 4.704l2.171 0.592-6 22.001-2.171-0.592 6-22.001z" />
+        </g>
+      ),
+      viewBox: '0 0 40 32'
     }
   }
 };
 
 export default theme;
-
