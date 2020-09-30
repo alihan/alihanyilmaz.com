@@ -6,6 +6,7 @@ import {
   Flex,
   Box,
   IconButton,
+  Icon,
   Image
 } from '@chakra-ui/core';
 import styled from '@emotion/styled';
@@ -52,40 +53,40 @@ const Container = ({ children }) => {
         mb={8}
         mx="auto"
       >
-        <NextLink href="/" passHref>
-          <Button variant="link">
-            <Image
-              rounded="full"
-              size="60px"
-              src="/static/images/profile.jpg"
-              alt="Alihan Yılmaz"
-            />
-          </Button>
-        </NextLink>
+        <IconButton
+          aria-label="Toggle dark mode"
+          icon={colorMode === 'dark' ? 'sun' : 'moon'}
+          onClick={toggleColorMode}
+          variant="solid"
+        />
         <Box>
-          <IconButton
-            aria-label="Toggle dark mode"
-            icon={colorMode === 'dark' ? 'sun' : 'moon'}
-            onClick={toggleColorMode}
-            variant="solid"
-          />
+          <NextLink href="/" passHref>
+            <Button as="a" variant="ghost" p={[2, 4]}>
+              Home
+            </Button>
+          </NextLink>
           <NextLink href="/blog" passHref>
-            <Button as="a" variant="ghost" p={[1, 4]}>
+            <Button as="a" variant="ghost" p={[2, 4]}>
               Blog
             </Button>
           </NextLink>
           <NextLink href="/resume" passHref>
-            <Button as="a" variant="ghost" p={[1, 4]}>
+            <Button as="a" variant="ghost" p={[2, 4]}>
               Resume
             </Button>
           </NextLink>
         </Box>
       </StickyNav>
       <motion.div
-        initial="initial"
-        animate="in"
-        exit="out"
-        variants={pageVariants}
+        initial={{
+          opacity: 0,
+          y: 100
+        }}
+        animate={{
+          opacity: 1,
+          y: 0,
+          transitionDuration: '.5s'
+        }}
       >
         <Flex
           as="main"
@@ -108,12 +109,10 @@ const pageVariants = {
     opacity: 0
   },
   in: {
-    opacity: 1,
-    transform: 'translateY(20px)'
+    opacity: 1
   },
   out: {
-    opacity: 0,
-    transform: 'translateY(0)'
+    opacity: 0
   }
 };
 

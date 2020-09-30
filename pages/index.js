@@ -147,7 +147,7 @@ const Index = () => {
             icon="twitter"
           />
           <ProjectCard
-            title="Frontend Mentor Challenges"
+            title="Frontend Mentor"
             description="Build different components and layout pages with HTML5, CSS3, VanillaJS. Most of them are mobile-first."
             href="https://frontendmentor-challenges-xi.vercel.app/"
             icon="web"
