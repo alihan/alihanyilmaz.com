@@ -66,7 +66,7 @@ const App = ({ Component, pageProps }) => {
   return (
     <ThemeProvider theme={theme}>
       <MDXProvider components={MDXComponents}>
-        <ColorModeProvider value="dark">
+        <ColorModeProvider value="light">
           <GlobalStyle>
             <Head>
               <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
