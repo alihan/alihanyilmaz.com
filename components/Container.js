@@ -9,6 +9,7 @@ import {
   Image
 } from '@chakra-ui/core';
 import styled from '@emotion/styled';
+import { motion } from 'framer-motion';
 
 import Footer from './Footer';
 
@@ -80,19 +81,40 @@ const Container = ({ children }) => {
           </NextLink>
         </Box>
       </StickyNav>
-      <Flex
-        as="main"
-        justifyContent="center"
-        flexDirection="column"
-        bg={bgColor[colorMode]}
-        color={primarytextColor[colorMode]}
-        px={8}
+      <motion.div
+        initial="initial"
+        animate="in"
+        exit="out"
+        variants={pageVariants}
       >
-        {children}
-        <Footer />
-      </Flex>
+        <Flex
+          as="main"
+          justifyContent="center"
+          flexDirection="column"
+          bg={bgColor[colorMode]}
+          color={primarytextColor[colorMode]}
+          px={8}
+        >
+          {children}
+          <Footer />
+        </Flex>
+      </motion.div>
     </>
   );
+};
+
+const pageVariants = {
+  initial: {
+    opacity: 0
+  },
+  in: {
+    opacity: 1,
+    transform: 'translateY(20px)'
+  },
+  out: {
+    opacity: 0,
+    transform: 'translateY(0)'
+  }
 };
 
 export default Container;
