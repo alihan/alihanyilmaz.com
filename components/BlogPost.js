@@ -14,7 +14,11 @@ const BlogPost = (frontMatter) => {
 
   return (
     <NextLink href={`blog/${slug}`} passHref>
-      <Link w="100%" _hover={{ textDecoration: 'none' }} _focus={{boxShadow: 'none'}}>
+      <Link
+        w="100%"
+        _hover={{ textDecoration: 'none' }}
+        _focus={{ boxShadow: 'none' }}
+      >
         <Box mb={8} display="block" width="100%">
           <Flex
             width="100%"
