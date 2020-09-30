@@ -56,9 +56,9 @@ export default function BlogLayout({ children, frontMatter }) {
           >
             <Flex align="center">
               <Avatar
-                size="xs"
+                size="md"
                 name="Alihan Yılmaz"
-                src="/static/images/profile.jpg"
+                src="https://bit.ly/3mYVjWS"
                 alt="Alihan Yılmaz"
                 mr={2}
               />
