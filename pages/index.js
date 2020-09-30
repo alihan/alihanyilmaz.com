@@ -128,7 +128,7 @@ const Index = () => {
                 borderRadius={4}
                 p={3}
               >
-                <Text fontWeight={500}>See More</Text>
+                <Text fontWeight={500}>See All</Text>
                 <Icon
                   aria-label="LinkedIn"
                   name="github"

@@ -59,6 +59,7 @@ export default function BlogLayout({ children, frontMatter }) {
                 size="xs"
                 name="Alihan Yılmaz"
                 src="/static/images/profile.jpg"
+                alt="Alihan Yılmaz"
                 mr={2}
               />
               <Text fontSize="sm" color={textColor[colorMode]}>
