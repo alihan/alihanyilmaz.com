@@ -1,13 +1,11 @@
 # alihanyilmaz.com
 
-This is my first portfolio/blog. I got inspired by [Lee Robinson](leerob.io) portfolio. I used [this repository](https://github.com/leerob/leerob.io) as a template. 
-
+This is my first portfolio/blog. I got inspired by [Lee Robinson](https://leerob.io/) portfolio. I used [this repository](https://github.com/leerob/leerob.io) as a template.
 
 ## Overview
 
 - `pages/blog/*` - Static pre-rendered blog pages using [MDX](https://github.com/mdx-js/mdx).
 - `pages/*` - All other static pages.
-
 
 ## Running Locally
 
