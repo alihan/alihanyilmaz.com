@@ -14,6 +14,7 @@ const description =
   'Thoughts on the web development, programming, tech and my personal life.';
 
 const Blog = () => {
+  const [searchValue, setSearchValue] = useState('');
   const { colorMode } = useColorMode();
 
   const secondaryTextColor = {
