@@ -1,14 +1,6 @@
 import React from 'react';
 import NextLink from 'next/link';
-import {
-  useColorMode,
-  Button,
-  Flex,
-  Box,
-  IconButton,
-  Icon,
-  Image
-} from '@chakra-ui/core';
+import { useColorMode, Button, Flex, Box, IconButton } from '@chakra-ui/core';
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
 

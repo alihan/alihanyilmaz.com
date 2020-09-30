@@ -1,5 +1,4 @@
 import React from 'react';
-import NextLink from 'next/link';
 import { Flex, Link, IconButton, Text, useColorMode } from '@chakra-ui/core';
 
 const Footer = () => {

@@ -8,18 +8,11 @@ import {
   Stack,
   Avatar,
   Link,
-  Box,
+  Box
 } from '@chakra-ui/core';
 
 import Container from '../components/Container';
 import BlogSeo from '../components/BlogSeo';
-
-const editUrl = (slug) =>
-  `https://github.com/leerob/leerob.io/edit/master/pages/blog/${slug}.mdx`;
-const discussUrl = (slug) =>
-  `https://mobile.twitter.com/search?q=${encodeURIComponent(
-    `https://leerob.io/blog/${slug}`
-  )}`;
 
 export default function BlogLayout({ children, frontMatter }) {
   const slug = frontMatter.__resourcePath
@@ -33,7 +26,7 @@ export default function BlogLayout({ children, frontMatter }) {
 
   return (
     <Container>
-      <BlogSeo url={`https://leerob.io/${slug}`} {...frontMatter} />
+      <BlogSeo url={`https://alihanyilmaz.com/${slug}`} {...frontMatter} />
       <Stack
         as="article"
         spacing={8}
@@ -82,11 +75,6 @@ export default function BlogLayout({ children, frontMatter }) {
           </Flex>
         </Flex>
         {children}
-        <Box>
-          <Link href={discussUrl(slug)} isExternal>
-            {'Discuss on Twitter'}
-          </Link>
-        </Box>
       </Stack>
     </Container>
   );

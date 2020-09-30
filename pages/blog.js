@@ -1,16 +1,6 @@
 import React, { useState } from 'react';
 import { NextSeo } from 'next-seo';
-import {
-  useColorMode,
-  Heading,
-  Text,
-  Flex,
-  Stack,
-  Input,
-  InputGroup,
-  InputRightElement,
-  Icon
-} from '@chakra-ui/core';
+import { useColorMode, Heading, Text, Flex, Stack } from '@chakra-ui/core';
 
 import Container from '../components/Container';
 import BlogPost from '../components/BlogPost';
@@ -18,13 +8,12 @@ import BlogPost from '../components/BlogPost';
 // eslint-disable-next-line import/no-unresolved, import/extensions
 import { frontMatter as blogPosts } from './blog/**/*.mdx';
 
-const url = 'https://alihan.io/blog';
+const url = 'https://alihanyilmaz.com/blog';
 const title = 'Blog – Alihan Yılmaz';
 const description =
-  'Thoughts on the software industry, programming, tech, videography, music, and my personal life.';
+  'Thoughts on the web development, programming, tech and my personal life.';
 
 const Blog = () => {
-  const [searchValue, setSearchValue] = useState('');
   const { colorMode } = useColorMode();
 
   const secondaryTextColor = {
