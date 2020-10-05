@@ -143,7 +143,7 @@ const Index = () => {
           <ProjectCard
             title="Twitter React Clone"
             description="Build Twitter UI using ReactJS, Storybook, and NextJS. Following through Adem Ilter's course."
-            href="https://twitter-react-ez5wita3g.vercel.app/"
+            href="https://twitter-web-react-phi.vercel.app/"
             icon="twitter"
           />
           <ProjectCard
