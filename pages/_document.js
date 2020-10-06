@@ -25,6 +25,12 @@ class MyDocument extends Document {
             rel="apple-touch-icon"
             sizes="180x180"
           />
+           <link
+            href="/static/favicons/android-chrome-192x192.png"
+            rel="icon"
+            sizes="192x192"
+            type="image/png"
+          />
           <link
             href="/static/favicons/favicon-32x32.png"
             rel="icon"
