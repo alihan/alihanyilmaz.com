@@ -13,7 +13,7 @@ const SEO = {
     description,
     images: [
       {
-        url: 'https://alihanyilmaz.com/static/images/og.jpg',
+        url: 'https://alihanyilmaz.com/static/images/placeholder.jpg',
         alt: title,
         width: 1280,
         height: 720
