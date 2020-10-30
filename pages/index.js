@@ -147,6 +147,12 @@ const Index = () => {
             icon="twitter"
           />
           <ProjectCard
+            title="COVID-19 Tracker"
+            description="Build a COVID-19 tracker app with ReactJS, NextJS, SCSS. Used ChartJS to display data in a chart."
+            href="https://covid-tracker-black.vercel.app/"
+            icon="covid"
+          />
+          <ProjectCard
             title="Frontend Mentor"
             description="Build different components and layout pages with HTML5, CSS3, VanillaJS. Most of them are mobile-first."
             href="https://frontendmentor-challenges-xi.vercel.app/"
