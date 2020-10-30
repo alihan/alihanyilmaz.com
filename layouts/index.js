@@ -6,9 +6,7 @@ import {
   Text,
   Flex,
   Stack,
-  Avatar,
-  Link,
-  Box
+  Avatar
 } from '@chakra-ui/core';
 
 import Container from '../components/Container';
