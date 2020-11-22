@@ -12,7 +12,7 @@ This is my first portfolio/blog. I got inspired by [Lee Robinson](https://leerob
 ```bash
 $ git clone https://github.com/alihan/alihanyilmaz.com.git
 $ cd alihanyilmaz.com
-$ npm
+$ npm install
 $ npm run dev
 ```
 
