@@ -1,0 +1,63 @@
+---
+title: 'Cookies vs Local Storage vs Session Storage'
+publishedAt: '2020-11-27'
+summary: 'Understand the difference between Cookies vs localStorage vs sessionStorage.'
+---
+
+> These are my notes about **Cookies, Local Storage, Session Storage**.
+
+## Overview
+
+Sometimes, we want to store or information on client browser. Previously there were just cookies to use it. But now, there are 3 options.
+
+- Cookies
+- Local Storage
+- Session Storage
+
+This post will introduce these 3 options, and highlight key pros and cons.
+
+## Cookies
+
+Actually, Cookies are just small text files. They are stored on your browser directory or program data folders. When you visit a website, if that website uses cookies, they are created.
+
+Cookies are used for keeping track of your movements on the website. For example, they help to remember your registered login, theme selection, and other customization options.
+
+**Pros**
+
+- ✅ Almost every browser support
+- ✅ Server and client-side reading
+- ✅ Persistent data. They can be stored for days, months, or years. They also have an auto-expire option
+
+**Cons**
+
+- ⛔️ Only 4kB storage for the entire cookie
+- ⛔️ Data transferred on every HTTP request. This is increasing the traffic between the client and server-side
+- ⛔️ Not secure because they are stored in a text
+
+## Local Storage
+
+Local Storage is another way to store data client-side. It allows to saving key/value pairs in the browser. It stores data with no expiration date.
+
+**Pros**
+
+- ✅ Data is not transferred to the server
+- ✅ Stores data until explicitly deleted
+- ✅ 5 MB storage for data 
+
+**Cons**
+
+- ⛔️ Just client-side reading
+- ⛔️ Not secure because they are stored in a text
+
+## Session Storage
+
+Session Storage is very similar to [Local Storage](#local-storage). There is just one difference. Local Storage has no expiration time but Session Storage is session based. It means data is stored until the tab (or browser) is closed.
+
+![Differences](/static/images/cookies-local-storage-session-storage/difference.jpg)
+
+## Conclusion
+
+Cookies and web storages serve different purposes. Local and session storage can only be read by the client side, Cookies can be read on both the server and client-side.
+
+If your server needs this data, ** cookies ** are the best solution for you. If only your client-side needs this data, local and session storage is the best solution. When choosing between these two, you should choose according to the persistence of the data. If you want your data will be persistent, go for **local storage**. Otherwise, choose **session storage**.
+
