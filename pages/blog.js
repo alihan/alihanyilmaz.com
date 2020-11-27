@@ -11,7 +11,7 @@ import { frontMatter as blogPosts } from './blog/**/*.mdx';
 const url = 'https://alihanyilmaz.com/blog';
 const title = 'Blog – Alihan Yılmaz';
 const description =
-  'Thoughts on the web development, programming, tech and my personal life.';
+  'Thoughts on the front-end development, programming, tech and my personal life.';
 
 const Blog = () => {
   const [searchValue, setSearchValue] = useState('');
