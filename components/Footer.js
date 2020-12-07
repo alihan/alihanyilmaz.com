@@ -20,7 +20,20 @@ const Footer = () => {
           <IconButton
             aria-label="GitHub"
             icon="github"
-            fontSize="23px"
+            fontSize="22px"
+            color={iconColor[colorMode]}
+            variant="ghost"
+          />
+        </Link>
+        <Link
+          href="https://twitter.com/_alihanyilmaz"
+          title="Twitter"
+          isExternal
+        >
+          <IconButton
+            aria-label="Twitter"
+            icon="twitter"
+            fontSize="22px"
             color={iconColor[colorMode]}
             variant="ghost"
           />
@@ -38,28 +51,21 @@ const Footer = () => {
             variant="ghost"
           />
         </Link>
-        <Link href="mailto:alihanyiilmaz@gmail.com" title="Email" isExternal>
-          <IconButton
-            aria-label="Email"
-            icon="mail"
-            fontSize="25px"
-            color={iconColor[colorMode]}
-            variant="ghost"
-          />
-        </Link>
       </div>
       <div>
-        <Flex fontWeight={600}>
-          alihanyiilmaz
-          <Text mx={1} fontWeight={300}>
-            at
-          </Text>
-          gmail
-          <Text mx={1} fontWeight={300}>
-            dot
-          </Text>
-          com
-        </Flex>
+        <Link href="mailto:alihanyiilmaz@gmail.com" title="Email" isExternal>
+          <Flex fontWeight={600}>
+            alihanyiilmaz
+            <Text mx={1} fontWeight={400}>
+              at
+            </Text>
+            gmail
+            <Text mx={1} fontWeight={400}>
+              dot
+            </Text>
+            com
+          </Flex>
+        </Link>
       </div>
     </Flex>
   );

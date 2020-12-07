@@ -58,10 +58,10 @@ const Blog = () => {
             alignItems="flex-start"
             maxWidth="700px"
           >
-            <Heading letterSpacing="tight" mb={2} as="h1" size="2xl">
+            <Heading letterSpacing="tight" mb={4} as="h1" size="2xl">
               Blog
             </Heading>
-            <Text color={secondaryTextColor[colorMode]}>
+            <Text color={secondaryTextColor[colorMode]} fontSize="17px">
               {`I have been writing what I have learned about mostly software development.
                 In total, I've written ${blogPosts.length} blog posts on this site.
                 `}
@@ -74,7 +74,7 @@ const Blog = () => {
             maxWidth="700px"
             mt={8}
           >
-            <Heading letterSpacing="tight" mb={4} size="xl" fontWeight={500}>
+            <Heading letterSpacing="tight" mb={4} size="xl" fontWeight={600}>
               All Posts
             </Heading>
             {!filteredBlogPosts.length && 'No posts found.'}

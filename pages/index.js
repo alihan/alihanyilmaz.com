@@ -53,15 +53,15 @@ const Index = () => {
           alignItems="flex-start"
           maxWidth="700px"
         >
-          <Heading letterSpacing="tight" mb={2} as="h1" size="2xl">
+          <Heading letterSpacing="tight" mb={4} as="h1" size="2xl">
             Hi, I’m Alihan Yılmaz
           </Heading>
-          <Text color={secondaryTextColor[colorMode]} mb={4}>
+          <Text color={secondaryTextColor[colorMode]} mb={4} fontSize="17px">
             I’m a student, Jr. Front-end developer, and constant learner.
           </Text>
-          <Text color={secondaryTextColor[colorMode]}>
-            I grew up in Izmir and went to school at Ankara, still studying for
-            a degree in Computer Engineering. I've been learning Frontend
+          <Text color={secondaryTextColor[colorMode]} fontSize="17px">
+            I grew up in Izmir and went to university in Ankara, still studying
+            for a degree in Computer Engineering. I've been learning Frontend
             development since 2019. Currently, I'm learning ReactJS.
           </Text>
         </Flex>
@@ -79,7 +79,7 @@ const Index = () => {
               mb={8}
               as="h2"
               size="xl"
-              fontWeight={500}
+              fontWeight={600}
             >
               Blog Posts
             </Heading>

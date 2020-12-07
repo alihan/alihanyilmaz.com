@@ -10,15 +10,15 @@ const theme = {
   },
   fontWeights: {
     normal: 400,
-    medium: 600,
-    bold: 500
+    medium: 500,
+    bold: 600
   },
   icons: {
     ...chakraTheme.icons,
     twitter: {
       path: (
         <g
-          fill="currentColor"
+          fill="none"
           stroke="currentColor"
           strokeWidth="2"
           strokeLinecap="round"
