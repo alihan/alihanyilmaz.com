@@ -142,25 +142,31 @@ const Index = () => {
           </Flex>
           <ProjectCard
             title="Twitter React Clone"
-            description="Build Twitter UI using ReactJS, Storybook, and NextJS. Following through Adem Ilter's course."
+            description="Twitter UI using ReactJS, Storybook, and NextJS. Following through Adem Ilter's course, added non-existing parts."
             href="https://twitter-web-react-phi.vercel.app/"
             icon="twitter"
           />
           <ProjectCard
             title="COVID-19 Tracker"
-            description="Build a COVID-19 tracker app with ReactJS, NextJS, SCSS. Used ChartJS to display data in a chart."
+            description="COVID-19 tracker app with ReactJS, NextJS, SCSS. Used ChartJS to display data in a chart."
             href="https://covid-tracker-black.vercel.app/"
             icon="covid"
           />
           <ProjectCard
+            title="Stats for Spotify"
+            description="An application that shows your favorite tracks and artists based on Spotify and creates playlists from them. I used ReactJS, SCSS Modules, and Spotify API."
+            href="https://statify-black.vercel.app/"
+            icon="statify"
+          />
+          <ProjectCard
             title="Frontend Mentor"
-            description="Build different components and layout pages with HTML5, CSS3, VanillaJS. Most of them are mobile-first."
+            description="Different components and layout pages with HTML5, CSS3, VanillaJS. Most of them are mobile-first."
             href="https://frontendmentor-challenges-xi.vercel.app/"
             icon="web"
           />
           <ProjectCard
             title="JS 30"
-            description="Build 30 different things with Vanilla JS. Following through Wes Bos' course, applied own solutions."
+            description="30 different things with Vanilla JS. Following through Wes Bos' course, applied own solutions."
             href="https://alihan.github.io/JS30/"
             icon="js"
           />
