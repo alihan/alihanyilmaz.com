@@ -8,8 +8,7 @@ module.exports = withMdxEnhanced({
   remarkPlugins: [
     require('remark-autolink-headings'),
     require('remark-slug'),
-    require('remark-code-titles'),
-    require('./utils/title-style')
+    require('remark-code-titles')
   ],
   rehypePlugins: [mdxPrism],
   extendFrontMatter: {

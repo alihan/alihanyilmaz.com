@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import { Global, css } from '@emotion/core';
 import { DefaultSeo } from 'next-seo';
@@ -8,10 +8,7 @@ import {
   ColorModeProvider,
   useColorMode
 } from '@chakra-ui/core';
-import Router from 'next/router';
 import Head from 'next/head';
-import * as Fathom from 'fathom-client';
-
 import theme from '../styles/theme';
 import { prismLightTheme, prismDarkTheme } from '../styles/prism';
 import MDXComponents from '../components/MDXComponents';
@@ -50,19 +47,7 @@ const GlobalStyle = ({ children }) => {
   );
 };
 
-Router.events.on('routeChangeComplete', () => {
-  Fathom.trackPageview();
-});
-
 const App = ({ Component, pageProps }) => {
-  useEffect(() => {
-    if (process.env.NODE_ENV === 'production') {
-      Fathom.load(process.env.NEXT_PUBLIC_FATHOM_SITE_ID, {
-        includedDomains: ['alihanyilmaz.com']
-      });
-    }
-  }, []);
-
   return (
     <ThemeProvider theme={theme}>
       <MDXProvider components={MDXComponents}>

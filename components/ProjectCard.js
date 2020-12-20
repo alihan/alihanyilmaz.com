@@ -1,5 +1,4 @@
 import React from 'react';
-import * as Fathom from 'fathom-client';
 import {
   Flex,
   Link,
@@ -9,16 +8,6 @@ import {
   Icon,
   useColorMode
 } from '@chakra-ui/core';
-
-const trackGoal = (title) => {
-  const goalCodes = {
-    'Twitter React Clone': '5WGDOKV0',
-    'COVID-19 Tracker': 'HV9HDL0O',
-    'Frontend Mentor': 'LRXBPLZS'
-  };
-
-  Fathom.trackGoal(goalCodes[title], 0);
-};
 
 const ProjectCard = ({ title, description, href, icon }) => {
   const { colorMode } = useColorMode();
