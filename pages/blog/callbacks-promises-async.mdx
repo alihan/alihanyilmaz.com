@@ -1,0 +1,188 @@
+---
+title: 'Callbacks, Promises, and Async Await'
+publishedAt: '2020-12-30'
+summary: 'Short description of callbacks, promises and async await with examples.'
+---
+
+> These are my notes about **Callbacks, Promises, and Async Await**.
+
+## Overview
+
+JavaScript is a single-threaded programming language with a synchronous execution model that it can only execute one statement at a time. But sometimes we have action like requesting data from an API and it takes some time. And since synchronous execution, we have to wait until that operation finishes to process other actions. While we are waiting, the browser would not be able to handle any operation. This is called **blocking.** That's why we need asynchronous operations. Any action that takes some time to process is run with other synchronous operation and finishes in the future.
+
+So **Callback** functions, **Promises**, and **Async and await** are fundamental concepts that JavaScript uses to handle asynchronous operations.
+
+## Callbacks
+
+When a function is an argument of another function, it is known as a **callback function.** Callback functions are quite popular in JavaScript. For example, you can see them in `setInterval`, `setTimeout`, and `map` functions.
+
+Here is example of callback function:
+
+```js
+setInterval(function () {
+  console.log('hello world!');
+}, 2000);
+```
+
+This `setInterval` function takes another function as an argument, and this function that is passed as an argument is called **callback.**
+
+## Promises
+
+**Promises** are used to handle the asynchronous result of an operation. When we make API requests to the server, we do not know these servers are working at that moment, or how long it takes to process the request.
+
+If we use Promises, we can defer the execution of this code until the request is completed. In this way, other operations can keep running.
+
+Promises has three states:
+
+- **Pending:** This is initial state of promise, neither fullfilled nor rejected.
+- **Fulfilled:** This is meaning that operation was completed successfully.
+- ** Rejected:** This is meaning that operation failed. Usually an error is thrown.
+
+**Creating a Promise**
+
+Here is a promise which has a resolve and reject callbacks. These callbacks handle the success and failure of the operation.
+
+```js
+const promise = new Promise((resolve, reject) => {
+  // promise description
+});
+```
+
+Here is example of promise:
+
+```js
+const person = true;
+const personInfo = new Promise((resolve, reject) => {
+  if (person) {
+    const personDetails = {
+      name: 'Alihan',
+      lastName: 'Yilmaz',
+      age: 21
+    };
+    resolve(personDetails);
+  } else {
+    reject(new Error('There is no person'));
+  }
+});
+```
+
+Here is our output:
+
+```bash
+__proto__: Promise
+[[PromiseStatus]]: "fulfilled"
+[[PromiseValue]]: Object
+```
+
+**Consuming a Promise**
+
+In our example, we have a promise that has fulfilled with a value which is an object, but we also want to be able to access the value. So, there is a method called `then` that will run after the promise reaches resolve. `then` returns the value of promise as a parameter.
+
+Here is how we would return and log the value of the example promise:
+
+```js
+personInfo
+  .then((response) => {
+    console.log(response);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+`.then()` returns the resolve value of our promise. `catch()` returns the reject value of our promise.
+
+And lastly, I want to give a real example with [the Fetch API.](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+
+```js
+fetch('https://api.github.com/users/alihan')
+  .then((response) => response.json())
+  .then((data) => console.log(data))
+  .catch((error) => console.error(error));
+```
+
+In this example, we used the Fetch API which allows you to make an asynchronous request over a network and returns a promise. The first `then` passed the response to the function that formats the response as JSON data, then passes JSON data to the second `then` to log the data to the console. The `catch` statement logs an error to the console.
+
+Output of this code:
+
+```bash
+login: "alihan",
+id: 52474117,
+node_id: "MDQ6VXNlcjUyNDc0MTE3",
+avatar_url: "https://avatars1.githubusercontent.com/u/52474117?v=4"
+..
+```
+
+## Async and Await
+
+An async function is a special syntax to work with promises in a more comfortable way. It still uses promises under the hood.
+
+Now, let's create an async function:
+
+```js
+async function getPerson(name, lastName, age) {
+  const personDetails = {
+    name,
+    lastName,
+    age
+  };
+  return personDetails;
+}
+```
+
+Actually, this function is more different than the traditional function. If we execute this function, we will find that it returns a promise rather than a value. If we will log a call to the getPerson function, the output will be:
+
+```bash
+__proto__: Promise
+[[PromiseStatus]]: "fulfilled"
+[[PromiseValue]]: Object
+```
+
+Now, we can understand that we can handle an async function with then like we could handle a promise. Let's try it:
+
+```js
+getPerson('Alihan', 'Yılmaz', 21).then((response) => console.log(response));
+```
+
+With this call to `getPerson` passes the return value to a function that logs the value to the console. Our output will be:
+
+```bash
+{name: "Alihan", lastName: "Yılmaz", age: 21}
+```
+
+An async function can handle a promise with await. Await is only used with an async function and it eliminates the use of `.then()` and `.catch()`. In async and await, async is prepended when returning a promise, await is prepended when calling a promise.
+
+Also, we use `try` and `catch` to get the reject value of an async function. Now let's rewrite our the Fetch API and GitHub API example with async/await and try/catch:
+
+```js
+async function getGitHubInfo() {
+  try {
+    // Handle success
+    const response = await fetch('https://api.github.com/users/alihan');
+    const data = await response.json();
+
+    console.log(data);
+  } catch (error) {
+    // Handle error
+    console.error(error);
+  }
+}
+```
+
+And our output will be same:
+
+```bash
+login: "alihan",
+id: 52474117,
+node_id: "MDQ6VXNlcjUyNDc0MTE3",
+avatar_url: "https://avatars1.githubusercontent.com/u/52474117?v=4"
+..
+```
+
+## Conclusion
+
+Learning how to handle the result of asynchronous actions was always challenging to me. And finally, I wanted to revise and take some notes about them. After I learned, I wanted to publish my notes. Here are sources that I used:
+
+- [MDN Web Docs](https://developer.mozilla.org/en-US/)
+- [Understanding the Event Loop, Callbacks, Promises, and Async/Await in JavaScript](https://www.digitalocean.com/community/tutorials/understanding-the-event-loop-callbacks-promises-and-async-await-in-javascript#callback-functions)
+- [Callbacks, Promises, and Async](https://scotch.io/courses/10-need-to-know-javascript-concepts/callbacks-promises-and-async)
