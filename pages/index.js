@@ -54,7 +54,7 @@ const Index = () => {
           maxWidth="700px"
         >
           <Heading letterSpacing="tight" mb={4} as="h1" size="2xl">
-            Hi, I’m Alihan Yılmaz
+            Hey, I’m Alihan Yılmaz
           </Heading>
           <Text color={secondaryTextColor[colorMode]} mb={4} fontSize="17px">
             I’m a student, Jr. Front-end developer, and constant learner.
