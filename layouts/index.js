@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { parseISO, format } from 'date-fns';
 import {
   useColorMode,
@@ -6,8 +6,12 @@ import {
   Text,
   Flex,
   Stack,
-  Avatar
+  Avatar,
+  IconButton,
+  useClipboard,
+  Button
 } from '@chakra-ui/core';
+import { TwitterShareButton } from 'react-share';
 
 import Container from '../components/Container';
 import BlogSeo from '../components/BlogSeo';
@@ -21,6 +25,14 @@ export default function BlogLayout({ children, frontMatter }) {
     light: 'gray.700',
     dark: 'gray.400'
   };
+
+  const iconColor = {
+    light: 'gray.700',
+    dark: 'gray.200'
+  };
+
+  const [value, setValue] = useState(`https://alihanyilmaz.com/blog/${slug}`);
+  const { hasCopied, onCopy } = useClipboard(value);
 
   return (
     <Container>
@@ -62,15 +74,45 @@ export default function BlogLayout({ children, frontMatter }) {
               />
               <Text fontSize="sm" color={textColor[colorMode]}>
                 {frontMatter.by}
-                {'Alihan Yılmaz / '}
-                {format(parseISO(frontMatter.publishedAt), 'MMMM dd, yyyy')}
+                {'Alihan Yılmaz'}
+                <Text
+                  fontSize="sm"
+                  color="gray.500"
+                  minWidth="100px"
+                  mt={[2, 0]}
+                >
+                  {format(parseISO(frontMatter.publishedAt), 'MMMM dd, yyyy')}
+                  {`  • `}
+                  {frontMatter.readingTime.text}
+                  {` `}
+                </Text>
               </Text>
             </Flex>
-            <Text fontSize="sm" color="gray.500" minWidth="100px" mt={[2, 0]}>
-              {` • `}
-              {frontMatter.readingTime.text}
-              {` • `}
-            </Text>
+            <Flex justify="center" align="center">
+              <Button
+                onClick={onCopy}
+                mr={2}
+                variant="outline"
+                size="sm"
+                rightIcon="copy"
+              >
+                {hasCopied ? 'Copied' : 'Copy Link'}
+              </Button>
+
+              <TwitterShareButton
+                title={frontMatter.title}
+                url={`https://alihanyilmaz.com/blog/${slug}`}
+                via="_alihanyilmaz"
+              >
+                <IconButton
+                  aria-label="Twitter"
+                  icon="twitterfill"
+                  fontSize="22px"
+                  color={iconColor[colorMode]}
+                  variant="ghost"
+                />
+              </TwitterShareButton>
+            </Flex>
           </Flex>
         </Flex>
         {children}
