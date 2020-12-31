@@ -60,7 +60,7 @@ export default function BlogLayout({ children, frontMatter }) {
             justify="space-between"
             align={['initial', 'center']}
             direction={['column', 'row']}
-            mt={2}
+            mt={4}
             w="100%"
             mb={4}
           >
@@ -88,7 +88,7 @@ export default function BlogLayout({ children, frontMatter }) {
                 </Text>
               </Text>
             </Flex>
-            <Flex justify="center" align="center">
+            <Flex justify={['initial', 'center']} align="center" mt={[4, 0]}>
               <Button
                 onClick={onCopy}
                 mr={2}
@@ -110,6 +110,7 @@ export default function BlogLayout({ children, frontMatter }) {
                   fontSize="22px"
                   color={iconColor[colorMode]}
                   variant="ghost"
+                  size="sm"
                 />
               </TwitterShareButton>
             </Flex>
