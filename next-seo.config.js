@@ -19,6 +19,11 @@ const SEO = {
         height: 720
       }
     ]
+  },
+  twitter: {
+    handle: '@_alihanyilmaz',
+    site: '@_alihanyilmaz',
+    cardType: 'summary_large_image'
   }
 };
 
