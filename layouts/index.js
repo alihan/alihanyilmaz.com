@@ -82,7 +82,7 @@ export default function BlogLayout({ children, frontMatter }) {
                   mt={[2, 0]}
                 >
                   {format(parseISO(frontMatter.publishedAt), 'MMMM dd, yyyy')}
-                  {`  • `}
+                  {` • `}
                   {frontMatter.readingTime.text}
                   {` `}
                 </Text>
