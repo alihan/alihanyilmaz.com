@@ -1,5 +1,9 @@
 const title = 'Alihan Yılmaz';
 const description = 'Student, Front-end developer, JavaScript enthusiast.';
+const featuredImage = {
+  url: `https://og-image.alihany.vercel.app/${title}`,
+  alt: title
+};
 
 const SEO = {
   title,
@@ -11,14 +15,7 @@ const SEO = {
     url: 'https://alihanyilmaz.com',
     title,
     description,
-    images: [
-      {
-        url: 'https://alihanyilmaz.com/static/images/placeholder.jpg',
-        alt: title,
-        width: 1280,
-        height: 720
-      }
-    ]
+    images: [featuredImage]
   },
   twitter: {
     handle: '@_alihanyilmaz',
