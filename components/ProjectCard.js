@@ -30,7 +30,6 @@ const ProjectCard = ({ title, description, href, icon }) => {
     <Link
       mb={4}
       href={href}
-      onClick={() => trackGoal(title)}
       title={title}
       isExternal
       _hover={{

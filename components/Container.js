@@ -53,17 +53,42 @@ const Container = ({ children }) => {
         />
         <Box>
           <NextLink href="/" passHref>
-            <Button as="a" variant="ghost" p={[2, 4]}>
+            <Button
+              as="a"
+              variant="ghost"
+              p={[2, 4]}
+              fontSize={['14px', '16px']}
+            >
               Home
             </Button>
           </NextLink>
           <NextLink href="/blog" passHref>
-            <Button as="a" variant="ghost" p={[2, 4]}>
+            <Button
+              as="a"
+              variant="ghost"
+              p={[2, 4]}
+              fontSize={['14px', '16px']}
+            >
               Blog
             </Button>
           </NextLink>
+          <NextLink href="/bookmarks" passHref>
+            <Button
+              as="a"
+              variant="ghost"
+              p={[2, 4]}
+              fontSize={['14px', '16px']}
+            >
+              Bookmarks
+            </Button>
+          </NextLink>
           <NextLink href="/resume" passHref>
-            <Button as="a" variant="ghost" p={[2, 4]}>
+            <Button
+              as="a"
+              variant="ghost"
+              p={[2, 4]}
+              fontSize={['14px', '16px']}
+            >
               Resume
             </Button>
           </NextLink>
