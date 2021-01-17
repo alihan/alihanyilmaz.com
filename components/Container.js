@@ -52,10 +52,11 @@ const Container = ({ children }) => {
           onClick={toggleColorMode}
           variant="solid"
         />
-        <Menu>
+        <Menu autoSelect={false}>
           <MenuButton
+            px={0}
             as={IconButton}
-            variant="solid"
+            variant="outline"
             icon="hamburger"
             display={{ md: 'none', lg: 'none', sm: 'block', base: 'block' }}
           />
