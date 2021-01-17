@@ -3,6 +3,7 @@ import NextLink from 'next/link';
 import { useColorMode, Button, Flex, Box, IconButton } from '@chakra-ui/core';
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
+import { Menu, MenuButton, MenuList, MenuItem } from '@chakra-ui/core';
 
 import Footer from './Footer';
 
@@ -51,44 +52,82 @@ const Container = ({ children }) => {
           onClick={toggleColorMode}
           variant="solid"
         />
-        <Box>
+        <Menu>
+          <MenuButton
+            as={IconButton}
+            variant="solid"
+            icon="hamburger"
+            display={{ md: 'none', lg: 'none', sm: 'block', base: 'block' }}
+          />
+          <MenuList m={6}>
+            <NextLink href="/" passHref>
+              <MenuItem
+                justifyContent="flex-start"
+                px={4}
+                py={3}
+                mx={2}
+                borderRadius={6}
+                maxWidth="206px"
+              >
+                Home
+              </MenuItem>
+            </NextLink>
+            <NextLink href="/blog" passHref>
+              <MenuItem
+                justifyContent="flex-start"
+                px={4}
+                py={3}
+                mx={2}
+                borderRadius={6}
+                maxWidth="206px"
+              >
+                Blog
+              </MenuItem>
+            </NextLink>
+            <NextLink href="/bookmarks" passHref>
+              <MenuItem
+                justifyContent="flex-start"
+                px={4}
+                py={3}
+                mx={2}
+                borderRadius={6}
+                maxWidth="206px"
+              >
+                Bookmarks
+              </MenuItem>
+            </NextLink>
+            <NextLink href="/resume" passHref>
+              <MenuItem
+                justifyContent="flex-start"
+                px={4}
+                py={3}
+                mx={2}
+                borderRadius={6}
+                maxWidth="206px"
+              >
+                Resume
+              </MenuItem>
+            </NextLink>
+          </MenuList>
+        </Menu>
+        <Box display={{ md: 'block', lg: 'block', base: 'none', sm: 'none' }}>
           <NextLink href="/" passHref>
-            <Button
-              as="a"
-              variant="ghost"
-              p={[2, 4]}
-              fontSize={['14px', '16px']}
-            >
+            <Button as="a" variant="ghost" p={4} fontSize="17px">
               Home
             </Button>
           </NextLink>
           <NextLink href="/blog" passHref>
-            <Button
-              as="a"
-              variant="ghost"
-              p={[2, 4]}
-              fontSize={['14px', '16px']}
-            >
+            <Button as="a" variant="ghost" p={4} fontSize="17px">
               Blog
             </Button>
           </NextLink>
           <NextLink href="/bookmarks" passHref>
-            <Button
-              as="a"
-              variant="ghost"
-              p={[2, 4]}
-              fontSize={['14px', '16px']}
-            >
+            <Button as="a" variant="ghost" p={4} fontSize="17px">
               Bookmarks
             </Button>
           </NextLink>
           <NextLink href="/resume" passHref>
-            <Button
-              as="a"
-              variant="ghost"
-              p={[2, 4]}
-              fontSize={['14px', '16px']}
-            >
+            <Button as="a" variant="ghost" p={4} fontSize="17px">
               Resume
             </Button>
           </NextLink>
