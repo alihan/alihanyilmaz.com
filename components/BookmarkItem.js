@@ -34,10 +34,12 @@ const BookmarkItem = ({ link, cover, created, title }) => {
         align="center"
         borderBottom="1px solid"
         borderColor={borderColor[colorMode]}
-        p={[4, 2]}
-        minWidth={[300, 40, 700]}
+        p={[4, 4, 2]}
+        pl={[0, 0, 2]}
+        minWidth={[300, 400, 700]}
       >
         <Image
+          display={{ md: 'block', lg: 'block', base: 'none' }}
           size={[75, 150]}
           src={cover}
           alt={title}
@@ -51,7 +53,7 @@ const BookmarkItem = ({ link, cover, created, title }) => {
           <Heading as="h4" size="sm" fontWeight={400}>
             {title}
           </Heading>
-          <Text fontWeight="normal" color="gray.500">
+          <Text fontWeight="normal" color="gray.500" fontSize="14px">
             {formatDistanceToNowStrict(parseISO(created), {
               addSuffix: true,
               locale: enGB

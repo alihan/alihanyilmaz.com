@@ -137,6 +137,20 @@ const theme = {
         </g>
       ),
       viewBox: '0 0 24 24'
+    },
+    hamburger: {
+      path: (
+        <g
+          fill="currentColor"
+          stroke="none"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z" />
+        </g>
+      ),
+      viewBox: '0 0 24 24'
     }
   }
 };

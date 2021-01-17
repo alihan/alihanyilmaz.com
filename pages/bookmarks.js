@@ -59,13 +59,13 @@ const Bookmarks = ({ dataGroupByDay }) => {
               technology.
             </Text>
             {Object.keys(dataGroupByDay).map((date) => (
-              <Box mt={20} key={date}>
+              <Box mt={6} key={date}>
                 <Heading
                   tag="h4"
                   size="sm"
                   fontWeight="normal"
                   color="gray.500"
-                  pl={[2, 4]}
+                  pl={[0, 0, 4]}
                   mb={[2, -2]}
                 >
                   {date}
