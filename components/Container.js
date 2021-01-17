@@ -56,7 +56,7 @@ const Container = ({ children }) => {
           <MenuButton
             px={0}
             as={IconButton}
-            variant="outline"
+            variant="solid"
             icon="hamburger"
             display={{ md: 'none', lg: 'none', sm: 'block', base: 'block' }}
           />
