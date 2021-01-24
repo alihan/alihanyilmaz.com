@@ -1,0 +1,140 @@
+---
+title: 'Execution Context, Hoisting, Scopes, and Closures'
+publishedAt: '2021-01-25'
+summary: 'Learn what is execution context, hoisting, scopes, and closures in JavaScript.'
+---
+
+> These are my notes about **Execution Context, Hoisting, Scopes, and Closures**.
+
+## Overview
+
+One of the most important concepts to figure out how JavaScript works, is understanding **Execution Context**. Execution Context is essential to understand other JavaScript concepts such as Hoisting, Scopes, and Closures.
+
+## Execution Context
+
+When we write code, mostly we split our code into different pieces like _functions_, _packages_, and _modules_ to manage the complexity and maintain the code easily.
+
+Like us, the JavaScript engine uses the same way to interpret code. And these _pieces_ are called **_Execution Context_**. _Execution Contexts_ allow the JavaScript engine to manage the complexity. So, this is the purpose of execution contexts, but what are they exactly?
+
+Execution Context is an abstract concept of environment where the JavaScript code is executed. Whenever a code is run in JavaScript, it runs in the execution context.
+
+## How is the Execution Context created?
+
+We have 2 types of execution contexts.
+
+- **Global Execution Context**
+- **Function Execution Context**
+
+** 1- Global Execution Context **
+
+When the JavaScript engine runs your code for the first time, it creates something called **_Global Execution Context._** Even if you don't have a single line of code, still global execution context is created. And it consists of two things. One of them is a _global object_, and other one is a _global variable_ called `this.` If you are working on the browser, the global object will be `window`, if you are working on a Node environment, it will be `global.`
+
+![Global Execution Context](/static/images/execution-contexts-hoisting-scopes-closures/global-execution.JPG)
+
+As you can see above, even when we have don't a single line of code, we have still a global execution context. Now, let's try with some codes:
+
+![Global Execution Creation Phase](/static/images/execution-contexts-hoisting-scopes-closures/global-execution-with-code.JPG)
+
+![Global Execution Execution Phase](/static/images/execution-contexts-hoisting-scopes-closures/global-execution-with-code-2.JPG)
+
+We have a difference between these two pictures. Their phases are different. There are 2 separate phases in Execution Contexts. `Creation` and `Execution` phases. They have different responsibilities.
+
+When Global Execution Context is in the `Creation` phase, the JavaScript engine will do these:
+
+- Create a global object.
+- Create a global variable called `this`.
+- Create memory space for variables and functions.
+- Assign variable declarations to `undefined` and place function declarations in memory.
+
+After the `Creation` phase, the JavaScript engine starts to execute our code line by line and assigns the real values to variables. And this process is called the `Execution` phase.
+
+** 2- Function Execution Context **
+
+Function Execution Context is created when a function is invoked. It is almost the same with Global Execution Context. The difference is when a function is invoked, the JavaScript engine will create **_an arguments object_** rather than a global object. We have only one global object and it is created during the `Creation` phase of Global Execution Context. Let's see the example:
+
+![Function Execution Context](/static/images/execution-contexts-hoisting-scopes-closures/execution-contexts.gif)
+
+When we invoke `getGitHubURL` the function, _function execution context_ is created. JavaScript engine creates an argument object, a variable called `this`, sets up memory space for variables and functions, and lastly assigns variable declarations to `undefined`.
+
+In the above example, we have must notice some details:
+
+- Every argument we pass in function will be added as a local variable in that function execution context. In the above example, we have a `username` variable in the Global Execution Context and also in the `getGitHubURL` Execution Context because we passed `username` as an argument.
+
+- If we have variables declared inside of a function, it lives inside that Function Execution Context. For example, we created `url` variable, we can access this variable inside of the `getGitHubURL` execution context, not the Global Execution Context.
+
+When `getGitHubURL` function is finished executing, there is no more function execution context in visualization. In real life, the JavaScript engine has **_Call Stack_**. Since JavaScript is a single-threaded language which means it can only execute one statement at a time, when a function is invoked, a new Execution Context is created and added to Call Stack. When a function is finished running both phases (Creation and Execution), it is deleted from the Call Stack.
+
+## Hoisting
+
+As I told above when Execution Context is created JavaScript engine will _assign variable declarations a default value which is "undefined"._ This process is called **Hoisting** and it happens in the `Creation` phase.
+
+```js
+console.log(`Name is ${name}`); // Name is undefined
+console.log(`Surname is ${surname}`); // Surname is undefined
+
+var name = 'Alihan';
+var surname = 'Yilmaz';
+```
+
+## Scopes
+
+Scope is the current context of execution. It defines what variables we have access to. There are two types of scope. **_Global Scope_** and **_Local Scope._** Global Scope lives as long as our application lives, but Local Scope lives as long as our functions are called and executed.
+
+```js
+function firstName() {
+  var name = 'Alihan';
+
+  console.log(name);
+}
+
+function secondName() {
+  var name = 'Yılmaz';
+
+  console.log(name);
+}
+
+console.log(name); // Output: undefined
+var name = 'Alihan Yılmaz';
+firstName(); // Output: "Alihan"
+secondName(); // Output: "Yılmaz"
+console.log(name); // Output: "Alihan Yılmaz"
+```
+
+Even we have multiple variables called `name`, the JavaScript engine first look to the current Execution Context for that variable value. But what if JavaScript engine can't find that variable in that Function's Execution Context? It will look to nearest parent Execution Context for that variable, and this chain will continue until reaches to Global Execution Context. We called this process as **Scope Chain.**
+
+## Closures
+
+According to [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures), A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment). In other words, a closure gives you access to an outer function’s scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time. A closure has three scope chains:
+
+- It can access to own variables,
+- It can access to outer function's variables,
+- It can access to global variables.
+
+Let's see an example:
+
+```js
+function makeFunction() {
+  var name = 'Alihan';
+
+  function printName() {
+    console.log(name);
+  }
+  return printName;
+}
+
+var myFunction = makeFunction();
+myFunction();
+```
+
+![Closures](/static/images/execution-contexts-hoisting-scopes-closures/closures.gif)
+
+After `makeFunction` Execution Context is popped off the Call Stack, [JavaScript Visualizer](https://ui.dev/javascript-visualizer/) creates _Closure Scope_ and inside of it we still have the same variable environment with `makeFunction` Execution Context. And `printName` has access to the `name` variable because of **Closure Scope.**
+
+## Conclusion
+
+These are core concepts of JavaScript language, and we should learn if we want to know how things work under the hood. That's why, I want to take notes when I learned these concepts. If you want to learn these concepts, you should use this [JavaScript Visualizer](https://ui.dev/javascript-visualizer/) because it makes them easier to learn by visualizing these concepts. And other sources that I used:
+
+- [MDN Web Docs](https://developer.mozilla.org/en-US/)
+- [The Ultimate Guide to Hoisting, Scopes, and Closures in JavaScript](https://ui.dev/ultimate-guide-to-execution-contexts-hoisting-scopes-and-closures-in-javascript/)
+- [Master the JavaScript Interview: What is a Closure?](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36)
+- [JavaScript: The Hard Parts, v2](https://frontendmasters.com/courses/javascript-hard-parts-v2/)
