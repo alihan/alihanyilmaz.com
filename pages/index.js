@@ -62,7 +62,7 @@ const Index = () => {
           <Text color={secondaryTextColor[colorMode]} fontSize="17px">
             I grew up in Izmir and went to university in Ankara, still studying
             for a degree in Computer Engineering. I've been learning Frontend
-            development since 2019. Currently, I'm learning ReactJS.
+            development since 2020. Currently, I'm learning ReactJS.
           </Text>
         </Flex>
         <Flex
