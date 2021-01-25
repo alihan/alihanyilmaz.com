@@ -63,7 +63,7 @@ const Blog = () => {
             </Heading>
             <Text color={secondaryTextColor[colorMode]} fontSize="17px">
               {`I have been writing what I have learned about mostly software development.
-                In total, I've written ${blogPosts.length} blog posts on this site.
+                In total, I've written ${blogPosts.length} blog posts on this page.
                 `}
             </Text>
           </Flex>
