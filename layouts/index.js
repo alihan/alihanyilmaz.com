@@ -11,7 +11,6 @@ import {
   useClipboard,
   Button
 } from '@chakra-ui/core';
-import { TwitterShareButton } from 'react-share';
 
 import Container from '../components/Container';
 import BlogSeo from '../components/BlogSeo';
@@ -20,6 +19,8 @@ export default function BlogLayout({ children, frontMatter }) {
   const slug = frontMatter.__resourcePath
     .replace('blog/', '')
     .replace('.mdx', '');
+  const [value, setValue] = useState(`https://alihanyilmaz.com/blog/${slug}`);
+  const { hasCopied, onCopy } = useClipboard(value);
   const { colorMode } = useColorMode();
   const textColor = {
     light: 'gray.700',
@@ -31,8 +32,23 @@ export default function BlogLayout({ children, frontMatter }) {
     dark: 'gray.200'
   };
 
-  const [value, setValue] = useState(`https://alihanyilmaz.com/blog/${slug}`);
-  const { hasCopied, onCopy } = useClipboard(value);
+  const shareTwitter = (e) => {
+    e.preventDefault();
+    window.open(
+      `https://twitter.com/intent/tweet/?text=${
+        frontMatter.title
+      }&url=${`https://alihanyilmaz.com/blog/${slug} via @_alihanyilmaz`}`,
+      '_blank'
+    );
+  };
+
+  const shareLinkedin = (e) => {
+    e.preventDefault();
+    window.open(
+      `https://www.linkedin.com/sharing/share-offsite/?url=${`https://alihanyilmaz.com/blog/${slug}`}`,
+      '_blank'
+    );
+  };
 
   return (
     <Container>
@@ -99,20 +115,25 @@ export default function BlogLayout({ children, frontMatter }) {
                 {hasCopied ? 'Copied' : 'Copy Link'}
               </Button>
 
-              <TwitterShareButton
-                title={frontMatter.title}
-                url={`https://alihanyilmaz.com/blog/${slug}`}
-                via="_alihanyilmaz"
-              >
-                <IconButton
-                  aria-label="Twitter"
-                  icon="twitterfill"
-                  fontSize="22px"
-                  color={iconColor[colorMode]}
-                  variant="ghost"
-                  size="sm"
-                />
-              </TwitterShareButton>
+              <IconButton
+                aria-label="Twitter"
+                icon="twitterfill"
+                fontSize="22px"
+                color={iconColor[colorMode]}
+                variant="ghost"
+                size="sm"
+                onClick={shareTwitter}
+              />
+
+              <IconButton
+                aria-label="LinkedIn"
+                icon="linkedinfill"
+                fontSize="24px"
+                color={iconColor[colorMode]}
+                variant="ghost"
+                size="sm"
+                onClick={shareLinkedin}
+              />
             </Flex>
           </Flex>
         </Flex>
