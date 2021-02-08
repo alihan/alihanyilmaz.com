@@ -1,9 +1,5 @@
 import React from 'react';
 
-import Container from '../components/Container';
-import BlogPost from '../components/BlogPost';
-import ProjectCard from '../components/ProjectCard';
-
 import {
   useColorMode,
   Heading,
@@ -13,6 +9,10 @@ import {
   Icon,
   Link
 } from '@chakra-ui/core';
+
+import Container from '../components/Container';
+import BlogPost from '../components/BlogPost';
+import ProjectCard from '../components/ProjectCard';
 
 import { frontMatter as blogPosts } from './blog/**/*.mdx';
 

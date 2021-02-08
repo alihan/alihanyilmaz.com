@@ -9,8 +9,10 @@ import {
   useColorMode
 } from '@chakra-ui/core';
 import Head from 'next/head';
+
 import theme from '../styles/theme';
 import { prismLightTheme, prismDarkTheme } from '../styles/prism';
+
 import MDXComponents from '../components/MDXComponents';
 import SEO from '../next-seo.config';
 
